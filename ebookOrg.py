@@ -1,7 +1,6 @@
-# TODO: Open the book directory
-# TODO: Get a unique list of file names
-# Todo:
-# TODO: Move each unique filename to a folder with all ext.
+# Done: Open the book directory
+# Done: Get a unique list of file names
+# Done: Move each unique filename to a folder with all ext.
 
 import glob, os, shutil
 
@@ -24,3 +23,9 @@ for file in uniFiles:
     except FileExistsError:
         print(file, ' Folder Exists')
 
+for file in uniFiles:
+    filepath = glob.glob(f'../{file}.*')
+    for xpath in filepath:
+        filename = xpath[2:]
+        destination = 'C:\\Users\\Owner\\Downloads\\Python Materials\\Python - humble bundle\\test\\{0}'.format(file)
+        shutil.copy(xpath,destination)
